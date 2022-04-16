@@ -1,3 +1,4 @@
+import { MaterialModule } from './../material/material.module';
 import { HeroesRoutingModule } from './heroes-routing.module';
 import { NgModule } from '@angular/core';
 
@@ -19,7 +20,7 @@ import { ListadoComponent } from './pages/listado/listado.component';
     ListadoComponent],
   imports: [
     CommonModule,
-
+    MaterialModule,
     HeroesRoutingModule
   ]
 })
