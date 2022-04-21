@@ -1,3 +1,4 @@
+//WEB MUY BUENA PARA SACAR INTERFACES! copiando y pegando desde Postman https://app.quicktype.io/
 export interface Heroe {
     id?:                string;
     superhero:        string;
