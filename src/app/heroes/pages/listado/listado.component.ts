@@ -20,8 +20,6 @@ export class ListadoComponent implements OnInit {
     this.heroesService.getHeroes().subscribe(res => {
       this.heroes = res;
       console.log("heroes tiene ", res);
-      this.heroes.pop();
-      this.heroes.pop();
     });
   }
 
