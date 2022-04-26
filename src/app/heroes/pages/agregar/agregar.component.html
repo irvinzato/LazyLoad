@@ -1,6 +1,14 @@
 <div class="contentPrinc">
     <div class="header">
-        <h1>Agrega tu héroe <small> {{heroe.publisher}} </small> </h1>
+<!-- Una opcion para solucionarlo, si heroe.id existe hace ?, si no existe hace :, ternario parecido al ngIf -->
+        <h1>{{
+                (heroe.id)
+                ? 'Edita'  
+                : 'Nuevo'
+            }}
+            héroe 
+            <small> {{heroe.superhero}} </small> 
+        </h1>
     </div>
 
     <div class="contentForm">
@@ -52,7 +60,7 @@
                 <button mat-raised-button color="primary"
                         (click)="guardar()" >
                     <mat-icon>save</mat-icon>
-                    Guardar
+                    {{ (heroe.id) ? 'Actualizar' : 'Crear' }}
                 </button>
 
                 <span class="spacer"></span>

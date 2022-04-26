@@ -1,8 +1,12 @@
+import { ConfirmarBorradoComponent } from '../../components/confirmar-borrado/confirmar-borrado.component';
 import { switchMap } from 'rxjs/operators';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HeroesService } from './../../service/heroes.service';
 import { Heroe, Publisher } from './../../interfaces/heroes.interface';
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatDialog } from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-agregar',
@@ -31,7 +35,9 @@ export class AgregarComponent implements OnInit {
 
   constructor(private heroeService: HeroesService,
               private activateRoute: ActivatedRoute,
-              private router: Router) { }
+              private router: Router,
+              private snackBar: MatSnackBar,
+              public dialog: MatDialog ) { }
 
   ngOnInit() {
     /* Para leer los parametros de la ruta y ver su respuesta
@@ -39,7 +45,7 @@ export class AgregarComponent implements OnInit {
       console.log("Respuesta del params ", id);
     }); */
    
-    if(!this.router.url.includes('editar')){
+    if(!this.router.url.includes('editar')){  //Para saber cuando entra el usuario a editar o agregar
       return ;
     }
     this.activateRoute.params
@@ -62,6 +68,7 @@ export class AgregarComponent implements OnInit {
 
       this.heroeService.actualizarHeroe(this.heroe).subscribe(res => {
         //this.router.navigate(['heroes']);
+        this.mostrarSnackBar('Actualización exitosa');
         console.log("Respuesta del PUT ", res);
         
       });
@@ -70,7 +77,7 @@ export class AgregarComponent implements OnInit {
       this.heroeService.agregarHeroe(this.heroe).subscribe(res => {
         
         this.router.navigate(['heroes/editar', res.id]);    //res.id tiene mi heroe.id
-        
+        this.mostrarSnackBar('Registro creado !');
         console.log("Respuesta del servicio POST ", res);
     });
     }
@@ -78,10 +85,29 @@ export class AgregarComponent implements OnInit {
   } 
 
   borrar() {
-    this.heroeService.borrarHeroe(this.heroe.id)
-    .subscribe(res => {
-      console.log("Se mando a llamar el servicio DELETE ", res);
-      this.router.navigate(['heroes']);
+    console.log("Entrando a metodo de borrar");
+
+    const resDialog = this.dialog.open(ConfirmarBorradoComponent, {
+      width: '400px',
+      data: this.heroe
+    });
+
+    resDialog.afterClosed().subscribe( res => {
+      console.log("Respuesta al cerrar el dialogo ", res);
+      if(res) {
+        this.heroeService.borrarHeroe(this.heroe.id)
+        .subscribe(res => {
+          console.log("Se mando a llamar el servicio DELETE ", res);
+          this.router.navigate(['heroes']);
+        });
+      }
+    });
+    
+  }
+
+  mostrarSnackBar(mensaje: string) {
+    this.snackBar.open(mensaje, 'Cerrar', {
+      duration: 4000
     });
   }
 
