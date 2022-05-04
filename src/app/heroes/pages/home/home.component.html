@@ -44,7 +44,9 @@
 
         <span class="spacer"></span>    <!--Cree este estilo de forma global en "styles.css"-->
 
-        <button mat-button>
+        <span> {{auth.usuario}} </span>
+        
+        <button mat-button (click)="logout()">
             Logout
         </button>
     </mat-toolbar>
