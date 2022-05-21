@@ -1,0 +1,12 @@
+<h3>Presionaste Borrar</h3>
+<hr>
+<div>
+    <p>¿Estas seguro de borrar <strong>{{this.data.superhero}}?</strong> <br>
+    ¿Deseas continuar? </p>
+</div>
+
+<div class="divBotones">
+    <button mat-raised-button color="warn" (click)="borrar()">Borrar<mat-icon>delete</mat-icon></button>
+    
+    <button mat-raised-button (click)="cerrar()">Cancelar<mat-icon>cancel</mat-icon></button>
+</div>

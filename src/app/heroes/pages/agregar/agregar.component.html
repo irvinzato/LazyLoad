@@ -1,1 +1,83 @@
-<p>agregar works!</p>
+<div class="contentPrinc">
+    <div class="header">
+<!-- Una opcion para solucionarlo, si heroe.id existe hace ?, si no existe hace :, ternario parecido al ngIf -->
+        <h1>{{
+                (heroe.id)
+                ? 'Edita'  
+                : 'Nuevo'
+            }}
+            héroe 
+            <small> {{heroe.superhero}} </small> 
+        </h1>
+    </div>
+
+    <div class="contentForm">
+        <div class="formCamps">
+            <div class="firstCamps">
+                <mat-form-field>
+                    <mat-label>Super héroe</mat-label>
+                    <input matInput type="text" 
+                           [(ngModel)]="heroe.superhero" required>
+                </mat-form-field>
+                
+                <mat-form-field>
+                    <mat-label>Alter ego</mat-label>
+                    <input matInput type="text"
+                           [(ngModel)]="heroe.alter_ego" required>
+                </mat-form-field>
+            </div>
+
+            <mat-form-field class="formAllW">
+                <mat-label>Primera aparicion</mat-label>
+                <input matInput type="text" 
+                       [(ngModel)]="heroe.first_appearance" required>
+            </mat-form-field>
+
+            <mat-form-field class="formAllW">
+                <mat-label>Personajes</mat-label>
+                <input matInput type="text"
+                       [(ngModel)]="heroe.characters" required>
+            </mat-form-field>
+
+            <mat-form-field class="formAllW">
+                <mat-label>Creador</mat-label>
+                <mat-select [(ngModel)]="heroe.publisher" required>
+                    <mat-option *ngFor="let option of publisher" 
+                                [value]="option.id"> 
+                                {{option.desc}} 
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+
+            <mat-form-field class="formAllW">
+                <mat-label>Foto (URL)</mat-label>
+                <input matInput type="url" 
+                       [(ngModel)]="heroe.alt_img" required>
+            </mat-form-field>
+
+            <div class="buttonsContent">
+                <button mat-raised-button color="primary"
+                        (click)="guardar()" >
+                    <mat-icon>save</mat-icon>
+                    {{ (heroe.id) ? 'Actualizar' : 'Crear' }}
+                </button>
+
+                <span class="spacer"></span>
+
+                <button *ngIf="heroe.id" mat-raised-button color="warn"
+                        (click)="borrar()">
+                    <mat-icon>delete</mat-icon>
+                    Borrar
+                </button>
+            </div>
+
+        </div>
+
+        <div class="formImg">
+            <img [src]="heroe | imagen">
+        </div>
+    </div>
+
+
+</div>

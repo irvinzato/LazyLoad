@@ -1,0 +1,7 @@
+En esta alpicacion creamos una web que nos muestra heroes, simulamos el back end instalando "json-server-npm" de manera global y descargando una base de datos,
+la cual esta en nuestra carpeta "heroesServer" dentro esta "db.json". Para poder simular el back end debemos entrar a la terminal y hacer un cd
+a la ubicacion donde tenemos la base de datos, en este caso "C:\Users\Irving\OneDrive\Documentos\AngularProjects\cursoUdemy\lazyLoad\heroesServer"
+Desde alli utilizar el comando "json-server --watch db.json" y con esto deberia estar corriendo nuestro back end, probar las peticiones en POSTMAN-
+SIEMPRE QUE QUERAMOS UTILIZARLO DEBEMOS TENER SU TERMINAL ABIERTA POR QUE SERA NUESTRO BACK END SERVER
+
+EL BACKEND SE INSTALA DE - https://www.npmjs.com/package/json-server CON EL COMANDO npm i json-server

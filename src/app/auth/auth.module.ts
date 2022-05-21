@@ -1,3 +1,4 @@
+import { MaterialModule } from './../material/material.module';
 import { AuthRoutingModule } from './auth-routing.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -12,7 +13,8 @@ import { RegistroComponent } from './pages/registro/registro.component';
     RegistroComponent],
   imports: [
     CommonModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    MaterialModule
   ]
 })
 export class AuthModule { }

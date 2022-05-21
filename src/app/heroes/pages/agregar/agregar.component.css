@@ -1,0 +1,38 @@
+.contentForm {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.contentForm > div {
+    flex-basis: 50%;
+}
+
+.firstCamps {
+    display: flex;
+}
+
+.firstCamps > mat-form-field {
+    flex-basis: 50%;
+}
+
+.formAllW {
+    width: 98%;
+}
+
+mat-form-field {
+    margin: 10px;
+}
+
+.buttonsContent {
+    display: flex;
+}
+
+.formImg {
+    display: flex;
+    justify-content: center;
+}
+
+img {
+    width: 50%;
+}

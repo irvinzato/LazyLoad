@@ -1,0 +1,10 @@
+img { /*Otro estilo que le puedo dar a mis imagenes, puedo quitarle o ponerle a la imagen*/
+    display: flex;
+    margin: auto;
+    height: 500px;
+    width: 350px;
+}
+
+mat-card-content {
+    margin-top: 10px;
+}

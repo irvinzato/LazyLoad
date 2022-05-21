@@ -1,0 +1,25 @@
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.content2 {
+    flex-basis: 22%;
+    margin: 10px; 
+}
+
+/* ESTOS ESTILOS SE PASARON A LA CARPETA DONDE ESTA SU COMPONENTE "heroe-tarjeta.component" dentro de la carpeta components
+img { Otro estilo que le puedo dar a mis imagenes, puedo quitarle o ponerle a la imagen
+    display: flex;
+    margin: auto;
+    height: 470px;
+    width: 350px;
+}
+
+mat-card-content {
+    margin-top: 10px;
+} */
+
+
+
